@@ -15,7 +15,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table id="example2" class="table table-bordered table-hover">
+                        <table id="example1" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>
@@ -99,7 +99,7 @@
 
 
     <!-- Modal -->
-    <div id="addCategory" class="modal fade" role="dialog">
+    <div id="add" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
