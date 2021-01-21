@@ -451,6 +451,7 @@
             'info'        : true,
             'autoWidth'   : false
         })
+        $('#datepicker').datepicker();
     })
 </script>
 </body>

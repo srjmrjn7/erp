@@ -59,15 +59,35 @@ class InventoryController extends Controller
 
     }
 
+
+    public function addProduct()
+    {
+        $categories = Category::get();
+        $brands=Brand::get();
+        $units=Unit::get();
+        return view('inventory.addProduct',compact('categories','brands','units'));
+
+    }
+
     public function storeProduct(Request $request)
     {
-        $brand = new Brand();
-        $brand->name = $request->name;
-        $brand->manufacturer = $request->manufacturer;
-        $brand->description = $request->description;
-        $brand->status = $request->status;
-        $brand->save();
-        return Redirect()->route('viewBrands');
+        $product = new Product();
+        $product->product_name = $request->product_name;
+        $product->code = $request->code;
+        $product->reorder_level = $request->reorder_level;
+        $product->barcode = $request->barcode;
+        $product->min_stock = $request->min_stock;
+        $product->narration = $request->narration;
+        $product->category_id = $request->category_id;
+        $product->brand_id = $request->brand_id;
+        $product->expiry_date = $request->expiry_date;
+        $product->size = $request->size;
+        $product->status = $request->status;
+        $product->status = $request->status;
+        $product->status = $request->status;
+
+        $product->save();
+        return Redirect()->back();
 
     }
 
@@ -83,7 +103,7 @@ class InventoryController extends Controller
         $unit = new Unit();
         $unit->unit = $request->unit;
         $unit->save();
-        return Redirect()->route('viewUnits');
+        return Redirect()->back();
 
     }
 

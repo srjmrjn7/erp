@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5671efe0-76b3-40d6-ab89-9190445f438e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/inventory/addProduct.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InventoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InventoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/includes/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/inventory/applyTax.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inventory/applyTax.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/inventory/brands.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inventory/brands.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/inventory/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inventory/categories.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/inventory/products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inventory/products.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/inventory/stockInvoices.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inventory/stockInvoices.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/inventory/tax.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inventory/tax.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/inventory/units.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inventory/units.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +36,9 @@
         <option value="C:\xampp\htdocs\erp\.idea" />
       </set>
     </option>
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -188,7 +195,8 @@
       <workItem from="1610695953185" duration="12882000" />
       <workItem from="1610848570719" duration="2670000" />
       <workItem from="1610853711897" duration="4282000" />
-      <workItem from="1611120721490" duration="10558000" />
+      <workItem from="1611120721490" duration="16480000" />
+      <workItem from="1611203827562" duration="4676000" />
     </task>
     <servers />
   </component>
@@ -200,7 +208,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

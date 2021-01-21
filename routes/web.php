@@ -41,7 +41,9 @@ Route::post('/storeappliedTax','App\Http\Controllers\InventoryController@storeAp
 
 //products
 Route::get('products/products','App\Http\Controllers\InventoryController@getProducts')->name('getProducts');
-Route::post('/storeProducts','App\Http\Controllers\InventoryController@storeAppliedtax')->name('storeAppliedtax');
+Route::get('products/addProduct','App\Http\Controllers\InventoryController@addProduct')->name('addProduct');
+Route::post('storeProduct','App\Http\Controllers\InventoryController@storeProduct')->name('storeProduct');
+
 
 
 //stock count

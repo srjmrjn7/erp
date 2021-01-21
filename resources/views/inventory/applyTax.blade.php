@@ -45,7 +45,14 @@
                                         {{$atax->atax}}
                                     </td>
                                     <td>
-                                        Delete, Edit
+                                        <a href="" class="fa-btn">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        &nbsp;
+                                        &nbsp;
+                                        <a href="" class="fa-btn delete-confirm">
+                                            <i class="fa fa-trash-o"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
