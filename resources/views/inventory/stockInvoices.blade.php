@@ -2,117 +2,61 @@
 @section('content')
 
 
-
-
-    <div class="content-wrapper">
-
-
+    <section class="content">
         <div class="row">
-            <div class="col-12 grid-margin">
-                <div class="card">
-                    <div class="card-body">
-
-                            <span class="pull-right">
-							<button data-toggle="modal" data-target="#addCategory" class="btn btn-sm btn-primary"> <i
-                                    class="fa fa-plus"></i>Add New</button>
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Stock Count</h3>
+                        <span class="pull-right">
+							<a href="{{url('products/createStockInvoice')}}" class="btn btn-sm btn-primary"> <i
+                                    class="fa fa-plus"></i> Add New</a>
 							</span>
-                        <div class="clearfix"></div>
-                        <h4 class="card-title">Stock Count</h4>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>
+                                    S.No
+                                </th>
+                                <th>
+                                    Invoice No
+                                </th>
+                                <th>
+                                    Created On
+                                </th>
+                                <th>
+                                    Actions
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($stockCounts as $key=>$sc)
                                 <tr>
-                                    <th>
-                                        S.No
-                                    </th>
-                                    <th>
-                                        Invoice No
-                                    </th>
-                                    <th>
-                                        Created On
-                                    </th>
-                                    <th>
-                                        Actions
-                                    </th>
+                                    <td>
+                                        {{$key+1}}
+                                    </td>
+                                    <td>
+                                        {{$sc->invoice_number}}
+                                    </td>
+                                    <td>
+                                        {{$sc->created_at}}
+                                    </td>
+                                    <td>
+                                        <a href="" class="fa-btn delete-confirm"><i class="fa fa-trash"></i></a>
+                                        <a href="" class="fa-btn "><i class="fa fa-eye"></i></a>
+                                    </td>
                                 </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($stockCounts as $key=>$sc)
-                                    <tr>
-                                        <td>
-                                            {{$key+1}}
-                                        </td>
-                                        <td>
-                                            {{$sc->ino}}
-                                        </td>
-                                        <td>
-                                            {{$sc->con}}
-                                        </td>
-                                        <td>
-                                            <a href="" class="fa-btn">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                            &nbsp;
-                                            &nbsp;
-                                            <a href="" class="fa-btn delete-confirm">
-                                                <i class="fa fa-trash-o"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-
-    </div>
-    <!-- content-wrapper ends -->
-    <!-- partial:partials/_footer.html -->
-
-
-    <!-- Modal -->
-    <div id="addCategory" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Apply Taxes</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="card-body">
-                        <form class="forms-sample" method="post" action="{{ route('storeAppliedtax') }}">
-                            @csrf
-                            <div class="form-group">
-                                <label for="exampleInputUsername1">Select Voucher Type</label>
-                                <select class="form-control" name="vtype" id="status">
-                                    <option value="purchase">Purchase Invoices</option>
-                                    <option value="sale">Sale Invoices</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Select Taxes(press CTRL to Choose Multiple Options)</label>
-                                <select class="form-control" name="taxes[]" id="status" multiple>
-                                    @foreach($taxes as $tax)
-                                        <option value="{{$tax->taxName}}">{{$tax->taxName}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                            <button type="submit" class="btn btn-gradient-primary mr-2">Save</button>
-                            <button class="btn btn-light" data-dismiss="modal">Cancel</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
+    </section>
 
 @endsection
 v

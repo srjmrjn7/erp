@@ -16,6 +16,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <form action="{{route('storeProduct')}}" method="POST" role="form">
+                            @csrf
                             <input type="hidden" name="id" value="">
                             <div class="well">
                                 <div class="row">
@@ -158,7 +159,7 @@
                                                             <div class="form-group">
                                                                 <select required="true"
                                                                         class="form-control itemIDs UOMId select2"
-                                                                        name="unit">
+                                                                        name="unit_id">
 
                                                                     @foreach($units as $unit)
                                                                         <option value="{{$unit->id}}">
@@ -181,7 +182,7 @@
                                                                 <div class="input-group price-input ">
                                                                     <div class="input-group-addon">Rs</div>
                                                                     <input type="MyNumber"
-                                                                           name="product[0][purchaseRate]"
+                                                                           name="purchase_price"
                                                                            class="form-control purchaseRate"
                                                                            placeholder="0.00"/>
                                                                     <div class="input-group-addon">NPR</div>
@@ -193,7 +194,7 @@
                                                             <div class="form-group">
                                                                 <div class="input-group price-input ">
                                                                     <div class="input-group-addon">Rs</div>
-                                                                    <input type="MyNumber" name="product[0][saleRate]"
+                                                                    <input type="MyNumber" name="sale_price"
                                                                            class="form-control saleRate"
                                                                            placeholder="0.00"/>
                                                                     <div class="input-group-addon">NPR</div>
@@ -204,7 +205,7 @@
                                                         <td>
                                                             <div class="form-group">
                                                                 <input type="MyNumber"
-                                                                       name="product[0][opening_stock_qty]" value=""
+                                                                       name="quantity"
                                                                        class="form-control">
                                                             </div>
                                                         </td>

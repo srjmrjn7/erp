@@ -6,6 +6,7 @@ use App\Models\Applytax;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Stock;
 use App\Models\Tax;
 use App\Models\Unit;
 use Illuminate\Http\Request;
@@ -83,8 +84,11 @@ class InventoryController extends Controller
         $product->expiry_date = $request->expiry_date;
         $product->size = $request->size;
         $product->status = $request->status;
-        $product->status = $request->status;
-        $product->status = $request->status;
+        $product->unit_id = $request->unit_id;
+        $product->unit_stock = $request->unit_stock;
+        $product->purchase_price = $request->purchase_price;
+        $product->sale_price = $request->sale_price;
+        $product->quantity = $request->quantity;
 
         $product->save();
         return Redirect()->back();
@@ -151,9 +155,8 @@ class InventoryController extends Controller
 
     public function stockInvoices()
     {
-        $appliedTaxes = Applytax::get();
-        $taxes = Tax::get();
-        return view('inventory.stockInvoices', compact('appliedTaxes', 'taxes'));
+        $stockCounts = Stock::get();
+        return view('inventory.stockInvoices', compact('stockCounts'));
 
     }
 
@@ -168,5 +171,11 @@ class InventoryController extends Controller
         $atax->atax = $taxes;
         $atax->save();
         return Redirect()->route('getAppliedTaxes');
+    }
+
+    public function createStockInvoice(Request $request)
+    {
+        $products=Product::get();
+        return view('inventory.createStockInvoice',compact('products'));
     }
 }

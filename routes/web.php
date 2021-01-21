@@ -49,6 +49,7 @@ Route::post('storeProduct','App\Http\Controllers\InventoryController@storeProduc
 //stock count
 Route::get('products/stockInvoices','App\Http\Controllers\InventoryController@stockInvoices')->name('stockInvoices');
 Route::post('/storeStockInvoice','App\Http\Controllers\InventoryController@storeStockInvoice')->name('storeStockInvoice');
+Route::get('products/createStockInvoice','App\Http\Controllers\InventoryController@createStockInvoice')->name('createStockInvoice');
 
 Auth::routes();
 

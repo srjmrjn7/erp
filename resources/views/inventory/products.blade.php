@@ -55,6 +55,11 @@
                             </thead>
                             <tbody>
                             @foreach($products as $key=>$product)
+                                @php
+                                    $category=DB::table('categories')->where('id',$product->category_id)->first();
+                                    $brand=DB::table('brands')->where('id',$product->brand_id)->first();
+                                    $punit=DB::table('units')->where('id',$product->brand_id)->first();
+                                @endphp
                                 <tr>
                                     <td>
                                         {{$key+1}}
@@ -66,15 +71,11 @@
                                         {{$product->product_name}}
                                     </td>
                                     <td>
-                                        @php
-                                            $category=DB::table('categories')->where('id',$product->category_id)->first();
-                                            $brand=DB::table('brands')->where('id',$product->brand_id)->first();
-                                            $punit=DB::table('units')->where('id',$product->brand_id)->first();
-                                        @endphp
-                                        {{$category}}
+
+                                        {{$category->name}}
                                     </td>
                                     <td>
-                                        {{$brand}}
+                                        {{$brand->name}}
                                     </td>
                                     <td>
                                         {{$product->expiry_date}}
@@ -83,7 +84,10 @@
                                         {{$product->default_unit}}
                                     </td>
                                     <td>
-                                        {{$punit}}
+                                        {{$product->unit_stock}}
+                                    </td>
+                                    <td>
+                                        {{$punit->unit}}
                                     </td>
                                     <td>
                                         {{$product->product_name}}

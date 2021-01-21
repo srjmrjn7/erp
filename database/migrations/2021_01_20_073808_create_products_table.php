@@ -19,9 +19,9 @@ class CreateProductsTable extends Migration
             $table->string('product_name');
             $table->integer('category_id');
             $table->integer('brand_id');
-            $table->date('expiry_date');
+            $table->string('expiry_date')->nullable;
             $table->integer('unit_id');
-            $table->integer('unit_stock');
+            $table->integer('unit_stock')->nullable;
             $table->string('purchase_price');
             $table->string('sale_price');
             $table->string('reorder_level')->nullable;
@@ -30,7 +30,7 @@ class CreateProductsTable extends Migration
             $table->text('narration')->nullable;
             $table->float('quantity')->nullable;
             $table->boolean('status');
-            $table->string('barcode');
+            $table->string('barcode')->nullable;
             $table->timestamps();
         });
     }
