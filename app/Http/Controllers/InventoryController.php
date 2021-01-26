@@ -10,6 +10,7 @@ use App\Models\Stock;
 use App\Models\Tax;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use DB;
 
 class InventoryController extends Controller
 {
@@ -18,6 +19,14 @@ class InventoryController extends Controller
     {
         $categories = Category::get();
         return view('inventory.categories', compact('categories'));
+    }
+
+    public function deleteCategory($id)
+    {
+
+        Category::find($id)->delete();
+        $result="success";
+        return json_encode($result);
     }
 
     public function storeCategory(Request $request)
@@ -31,12 +40,37 @@ class InventoryController extends Controller
 
     }
 
+    public function updateCategory(Request $request,$id)
+    {
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->status = $request->status;
+        $category->save();
+        return Redirect()->route('viewCategory');
+
+    }
+
+    public function editCategory($id)
+    {
+        $category = Category::get()->where('id',$id)->first();
+        return view('inventory.editCategory', compact('category'));
+    }
+
 
     public function viewBrands()
     {
         $brands = Brand::get();
         return view('inventory.brands', compact('brands'));
 
+    }
+
+    public function deleteBrand($id)
+    {
+
+        Brand::find($id)->delete();
+        $result="success";
+        return json_encode($result);
     }
 
     public function storeBrand(Request $request)
@@ -52,7 +86,6 @@ class InventoryController extends Controller
     }
 
 
-
     public function getProducts()
     {
         $products = Product::get();
@@ -60,13 +93,32 @@ class InventoryController extends Controller
 
     }
 
+    public function getProductHtml($id)
+    {
+        $product = DB::table('products')
+            ->join('units', 'products.unit_id', 'units.id')
+            ->select('products.*', 'units.unit')
+            ->where('products.id', $id)
+            ->get();;
+        return json_encode($product);
+
+    }
+
+    public function deleteProduct($id)
+    {
+
+        Product::find($id)->delete();
+        $result="success";
+        return json_encode($result);
+    }
+
 
     public function addProduct()
     {
         $categories = Category::get();
-        $brands=Brand::get();
-        $units=Unit::get();
-        return view('inventory.addProduct',compact('categories','brands','units'));
+        $brands = Brand::get();
+        $units = Unit::get();
+        return view('inventory.addProduct', compact('categories', 'brands', 'units'));
 
     }
 
@@ -85,7 +137,7 @@ class InventoryController extends Controller
         $product->size = $request->size;
         $product->status = $request->status;
         $product->unit_id = $request->unit_id;
-        $product->unit_stock = $request->unit_stock;
+        $product->unit_stock = $request->quantity;
         $product->purchase_price = $request->purchase_price;
         $product->sale_price = $request->sale_price;
         $product->quantity = $request->quantity;
@@ -111,6 +163,15 @@ class InventoryController extends Controller
 
     }
 
+    public function deleteUnit($id)
+    {
+
+        Unit::find($id)->delete();
+        $result="success";
+        return json_encode($result);
+    }
+
+
     public function viewTaxes()
     {
         $taxes = Tax::get();
@@ -128,6 +189,15 @@ class InventoryController extends Controller
         $tax->save();
         return Redirect()->route('viewTaxes');
     }
+
+    public function deleteTax($id)
+    {
+
+        Tax::find($id)->delete();
+        $result="success";
+        return json_encode($result);
+    }
+
 
 
     public function getAppliedTaxes()
@@ -153,6 +223,22 @@ class InventoryController extends Controller
         return Redirect()->route('getAppliedTaxes');
     }
 
+    public function deleteAppliedTax($id)
+    {
+
+        Applytax::find($id)->delete();
+        $result="success";
+        return json_encode($result);
+    }
+
+    public function deleteStockInvoice($id)
+    {
+
+        Applytax::find($id)->delete();
+        $result="success";
+        return json_encode($result);
+    }
+
     public function stockInvoices()
     {
         $stockCounts = Stock::get();
@@ -160,22 +246,22 @@ class InventoryController extends Controller
 
     }
 
+
     public function storeStockInvoice(Request $request)
     {
-        $taxes = implode(',', $request->taxes);
-        $chk = Applytax::where('vtype', $request->vtype)->first();
-
-        $atax = Applytax::find($chk->id);
-
-        $atax->vtype = $request->vtype;
-        $atax->atax = $taxes;
-        $atax->save();
-        return Redirect()->route('getAppliedTaxes');
+        $items=$request->items;
+        foreach($items as $item){
+            $stock=new Stock();
+            $item->product_id;
+    }
+        return Redirect()->back();
     }
 
     public function createStockInvoice(Request $request)
     {
-        $products=Product::get();
-        return view('inventory.createStockInvoice',compact('products'));
+        $products = Product::get();
+        return view('inventory.createStockInvoice', compact('products'));
     }
+
+
 }

@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('product_name');
             $table->integer('category_id');
             $table->integer('brand_id');
-            $table->string('expiry_date')->nullable;
+            $table->date('expiry_date')->nullable;
             $table->integer('unit_id');
             $table->integer('unit_stock')->nullable;
             $table->string('purchase_price');

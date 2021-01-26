@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5671efe0-76b3-40d6-ab89-9190445f438e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/inventory/createStockInvoice.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/inventory/editBrand.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/inventory/editCategory.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InventoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InventoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_15_082413_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_15_082413_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_15_094456_create_brands_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_15_094456_create_brands_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_20_073808_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_20_073808_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/inventory/addProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inventory/addProduct.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/inventory/products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inventory/products.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/inventory/brands.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inventory/brands.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/inventory/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inventory/categories.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/inventory/createStockInvoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inventory/createStockInvoice.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/inventory/stockInvoices.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inventory/stockInvoices.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -192,7 +199,12 @@
       <workItem from="1610848570719" duration="2670000" />
       <workItem from="1610853711897" duration="4282000" />
       <workItem from="1611120721490" duration="16480000" />
-      <workItem from="1611203827562" duration="11710000" />
+      <workItem from="1611203827562" duration="15772000" />
+      <workItem from="1611292968715" duration="566000" />
+      <workItem from="1611296639406" duration="1647000" />
+      <workItem from="1611464849437" duration="13444000" />
+      <workItem from="1611548746584" duration="15387000" />
+      <workItem from="1611638453082" duration="3068000" />
     </task>
     <servers />
   </component>

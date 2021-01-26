@@ -48,15 +48,18 @@
                                         {{$brand->description}}
                                     </td>
                                     <td>
-                                        {{$brand->status}}
+                                        @if($brand->status==1)
+                                            {{"Active"}}
+                                        @else
+                                            {{"Inactive"}}
+                                        @endif
                                     </td>
                                     <td>
-                                        <a href="" class="fa-btn">
+                                        <a href="{{URL::to('/products/editBrand/'.$brand->id)}}" class="fa-btn">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        &nbsp;
-                                        &nbsp;
-                                        <a href="" class="fa-btn delete-confirm">
+                                        <a href="{{URL::to('/products/brand/delete/'.$brand->id)}}"
+                                           class="fa-btn delete-confirm">
                                             <i class="fa fa-trash-o"></i>
                                         </a>
                                     </td>
@@ -102,8 +105,8 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control" name="status" id="status">
-                                    <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
+                                    <option value="0">Active</option>
+                                    <option value="1">Inactive</option>
                                 </select>
                             </div>
 

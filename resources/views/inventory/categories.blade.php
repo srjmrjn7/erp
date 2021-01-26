@@ -47,15 +47,17 @@
                                         {{$category->description}}
                                     </td>
                                     <td>
-                                        {{$category->status}}
+                                        @if($category->status==1)
+                                            {{"Active"}}
+                                            @else
+                                            {{"Inactive"}}
+                                            @endif
                                     </td>
                                     <td>
-                                        <a href="" class="fa-btn">
+                                        <a href="{{URL::to('/products/editCategory/'.$category->id)}}" class="fa-btn">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        &nbsp;
-                                        &nbsp;
-                                        <a href="" class="fa-btn delete-confirm">
+                                        <a href="{{URL::to('/products/category/delete/'.$category->id)}}" class="fa-btn delete-confirm">
                                             <i class="fa fa-trash-o"></i>
                                         </a>
                                     </td>
@@ -99,8 +101,8 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control" name="status" id="status">
-                                    <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
                                 </select>
                             </div>
 

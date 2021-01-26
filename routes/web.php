@@ -17,32 +17,43 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//products
+//categories
 Route::get('/products/category','App\Http\Controllers\InventoryController@viewCategory')->name('viewCategory');
+Route::get('/products/category/delete/{id}','App\Http\Controllers\InventoryController@deleteCategory')->name('deleteCategory');
+Route::get('/products/editCategory/{id}','App\Http\Controllers\InventoryController@editCategory')->name('editCategory');
 Route::post('/storeCategory','App\Http\Controllers\InventoryController@storeCategory')->name('storeCategory');
+Route::post('/updateCategory/{id}','App\Http\Controllers\InventoryController@updateCategory')->name('updateCategory');
 
 
 //brands
 Route::get('/products/brands','App\Http\Controllers\InventoryController@viewBrands')->name('viewBrands');
 Route::post('/storeBrand','App\Http\Controllers\InventoryController@storeBrand')->name('storeBrand');
+Route::get('/products/brand/delete/{id}','App\Http\Controllers\InventoryController@deleteBrand')->name('deleteBrand');
+Route::get('/products/editBrand/{id}','App\Http\Controllers\InventoryController@editBrand')->name('editBrand');
 
 
 //units
 Route::get('/products/units','App\Http\Controllers\InventoryController@viewUnits')->name('viewUnits');
 Route::post('/storeUnit','App\Http\Controllers\InventoryController@storeUnit')->name('storeUnit');
+Route::get('/products/unit/delete/{id}','App\Http\Controllers\InventoryController@deleteUnit')->name('deleteUnit');
 
 //taxes
 Route::get('/products/taxes','App\Http\Controllers\InventoryController@viewTaxes')->name('viewTaxes');
 Route::post('/storeTax','App\Http\Controllers\InventoryController@storeTax')->name('storeTax');
+Route::get('/products/tax/delete/{id}','App\Http\Controllers\InventoryController@deleteTax')->name('deleteTax');
+
 
 //apply taxes
 Route::get('products/getAppliedTaxes','App\Http\Controllers\InventoryController@getAppliedTaxes')->name('getAppliedTaxes');
 Route::post('/storeappliedTax','App\Http\Controllers\InventoryController@storeAppliedtax')->name('storeAppliedtax');
+Route::get('/products/appliedTax/delete/{id}','App\Http\Controllers\InventoryController@deleteAppliedTax')->name('deleteAppliedTax');
+
 
 //products
 Route::get('products/products','App\Http\Controllers\InventoryController@getProducts')->name('getProducts');
 Route::get('products/addProduct','App\Http\Controllers\InventoryController@addProduct')->name('addProduct');
 Route::post('storeProduct','App\Http\Controllers\InventoryController@storeProduct')->name('storeProduct');
+Route::get('accounting/products/getStockProductsHtml/{id}','App\Http\Controllers\InventoryController@getProductHtml')->name('getProductHtml');
 
 
 
@@ -50,6 +61,7 @@ Route::post('storeProduct','App\Http\Controllers\InventoryController@storeProduc
 Route::get('products/stockInvoices','App\Http\Controllers\InventoryController@stockInvoices')->name('stockInvoices');
 Route::post('/storeStockInvoice','App\Http\Controllers\InventoryController@storeStockInvoice')->name('storeStockInvoice');
 Route::get('products/createStockInvoice','App\Http\Controllers\InventoryController@createStockInvoice')->name('createStockInvoice');
+Route::get('/products/stockInvoices/delete/{id}','App\Http\Controllers\InventoryController@deleteStockInvoice')->name('deleteStockInvoice');
 
 Auth::routes();
 

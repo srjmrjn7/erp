@@ -12,7 +12,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="well">
-                            <form method="POST" action="">
+                            <form method="POST" action="{{route('storeStockInvoice')}}">
                                 <div class="well">
                                     <div class="row">
                                         <div class="col-sm-3">
@@ -32,7 +32,7 @@
                                                 <label>
                                                     <div>&nbsp;</div>
                                                 </label>
-                                                <a href="#" class="btn btn-primary add-stock-row"><i
+                                                <a class="btn btn-primary add-stock-row"><i
                                                         class="fa fa-plus"></i>&nbsp;Add</a>
                                             </div>
                                         </div>
@@ -54,7 +54,8 @@
                                                 <label>
                                                     <div>&nbsp;</div>
                                                 </label>
-                                                <a href="#" class="btn btn-primary show-all-product"><i
+                                                <br>
+                                                <a class="btn btn-primary show-all-product"><i
                                                         class="fa fa-search"></i>&nbsp;Show All Products</a>
                                             </div>
                                         </div>
@@ -140,9 +141,9 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-8">
-                                        <a href="https://erp.itvision.pk/accounting/products/stockInvoices"
+                                        <a href="{{url('products/stockInvoices')}}"
                                            class="form-btn btn  btn-default btn-default1 ">
-                                            Cancel </a>&nbsp;&nbsp;
+                                            Cancel </a>&nbsp;&nbsp
                                         <input type="submit" value="Apply Changes" name="apply_inventory"
                                                class="form-btn btn btn-shadow btn-primary ">
                                         <input type="submit" value="Save" name="submit"
@@ -152,12 +153,16 @@
                             </form>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
         </div>
     </section>
+<script>
 
+
+
+
+</script>
 
 @endsection
