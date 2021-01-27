@@ -45,12 +45,11 @@
                                         {{$atax->atax}}
                                     </td>
                                     <td>
-                                        <a href="" class="fa-btn">
+                                        <a href="{{URL::to('/products/editAppliedTax/'.$atax->id)}}" class="fa-btn">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        &nbsp;
-                                        &nbsp;
-                                        <a href="" class="fa-btn delete-confirm">
+
+                                        <a href="{{URL::to('/products/appliedTax/delete/'.$atax->id)}}" class="fa-btn delete-confirm">
                                             <i class="fa fa-trash-o"></i>
                                         </a>
                                     </td>
@@ -73,8 +72,8 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Apply Taxes</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Apply Taxes<button type="button" class="close" data-dismiss="modal">&times;</button></h4>
+
                 </div>
                 <div class="modal-body">
                     <div class="card-body">

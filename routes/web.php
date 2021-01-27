@@ -30,23 +30,32 @@ Route::get('/products/brands','App\Http\Controllers\InventoryController@viewBran
 Route::post('/storeBrand','App\Http\Controllers\InventoryController@storeBrand')->name('storeBrand');
 Route::get('/products/brand/delete/{id}','App\Http\Controllers\InventoryController@deleteBrand')->name('deleteBrand');
 Route::get('/products/editBrand/{id}','App\Http\Controllers\InventoryController@editBrand')->name('editBrand');
+Route::post('/updateBrand/{id}','App\Http\Controllers\InventoryController@updateBrand')->name('updateBrand');
 
 
 //units
 Route::get('/products/units','App\Http\Controllers\InventoryController@viewUnits')->name('viewUnits');
 Route::post('/storeUnit','App\Http\Controllers\InventoryController@storeUnit')->name('storeUnit');
 Route::get('/products/unit/delete/{id}','App\Http\Controllers\InventoryController@deleteUnit')->name('deleteUnit');
+Route::get('/products/editUnit/{id}','App\Http\Controllers\InventoryController@editUnit')->name('editUnit');
+Route::post('/updateUnit/{id}','App\Http\Controllers\InventoryController@updateUnit')->name('updateUnit');
+
 
 //taxes
 Route::get('/products/taxes','App\Http\Controllers\InventoryController@viewTaxes')->name('viewTaxes');
 Route::post('/storeTax','App\Http\Controllers\InventoryController@storeTax')->name('storeTax');
 Route::get('/products/tax/delete/{id}','App\Http\Controllers\InventoryController@deleteTax')->name('deleteTax');
+Route::get('/products/editTax/{id}','App\Http\Controllers\InventoryController@editTax')->name('editTax');
+Route::post('/updateTax/{id}','App\Http\Controllers\InventoryController@updateTax')->name('updateTax');
+
 
 
 //apply taxes
 Route::get('products/getAppliedTaxes','App\Http\Controllers\InventoryController@getAppliedTaxes')->name('getAppliedTaxes');
 Route::post('/storeappliedTax','App\Http\Controllers\InventoryController@storeAppliedtax')->name('storeAppliedtax');
 Route::get('/products/appliedTax/delete/{id}','App\Http\Controllers\InventoryController@deleteAppliedTax')->name('deleteAppliedTax');
+Route::get('/products/editAppliedTax/{id}','App\Http\Controllers\InventoryController@editAppliedTax')->name('editAppliedTax');
+Route::post('/updateAppliedTax/{id}','App\Http\Controllers\InventoryController@updateAppliedTax')->name('updateAppliedTax');
 
 
 //products
@@ -54,6 +63,7 @@ Route::get('products/products','App\Http\Controllers\InventoryController@getProd
 Route::get('products/addProduct','App\Http\Controllers\InventoryController@addProduct')->name('addProduct');
 Route::post('storeProduct','App\Http\Controllers\InventoryController@storeProduct')->name('storeProduct');
 Route::get('accounting/products/getStockProductsHtml/{id}','App\Http\Controllers\InventoryController@getProductHtml')->name('getProductHtml');
+Route::get('/products/delete/{id}','App\Http\Controllers\InventoryController@deleteProduct')->name('deleteProduct');
 
 
 
@@ -66,3 +76,7 @@ Route::get('/products/stockInvoices/delete/{id}','App\Http\Controllers\Inventory
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//purchase quotation
+Route::get('product/purchaseQuotation','App\Http\Controllers\PurchaseController@getPurchaseQuotation')->name('purchaseQuotation');

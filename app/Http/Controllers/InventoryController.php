@@ -15,6 +15,11 @@ use DB;
 class InventoryController extends Controller
 {
     //
+
+    public function __construct()
+    {
+    }
+
     public function viewCategory()
     {
         $categories = Category::get();
@@ -25,7 +30,7 @@ class InventoryController extends Controller
     {
 
         Category::find($id)->delete();
-        $result="success";
+        $result = "success";
         return json_encode($result);
     }
 
@@ -40,7 +45,7 @@ class InventoryController extends Controller
 
     }
 
-    public function updateCategory(Request $request,$id)
+    public function updateCategory(Request $request, $id)
     {
         $category = Category::find($id);
         $category->name = $request->name;
@@ -53,7 +58,7 @@ class InventoryController extends Controller
 
     public function editCategory($id)
     {
-        $category = Category::get()->where('id',$id)->first();
+        $category = Category::get()->where('id', $id)->first();
         return view('inventory.editCategory', compact('category'));
     }
 
@@ -65,17 +70,35 @@ class InventoryController extends Controller
 
     }
 
+    public function editBrand($id)
+    {
+        $brand = Brand::where('id', $id)->first();
+        return view('inventory.editBrand', compact('brand'));
+    }
+
     public function deleteBrand($id)
     {
 
         Brand::find($id)->delete();
-        $result="success";
+        $result = "success";
         return json_encode($result);
     }
 
     public function storeBrand(Request $request)
     {
         $brand = new Brand();
+        $brand->name = $request->name;
+        $brand->manufacturer = $request->manufacturer;
+        $brand->description = $request->description;
+        $brand->status = $request->status;
+        $brand->save();
+        return Redirect()->route('viewBrands');
+
+    }
+
+    public function updateBrand(Request $request, $id)
+    {
+        $brand = Brand::find($id);
         $brand->name = $request->name;
         $brand->manufacturer = $request->manufacturer;
         $brand->description = $request->description;
@@ -108,7 +131,7 @@ class InventoryController extends Controller
     {
 
         Product::find($id)->delete();
-        $result="success";
+        $result = "success";
         return json_encode($result);
     }
 
@@ -154,6 +177,14 @@ class InventoryController extends Controller
 
     }
 
+
+    public function editUnit($id)
+    {
+        $unit = Unit::where('id', $id)->first();
+        return view('inventory.editUnit', compact('unit'));
+
+    }
+
     public function storeUnit(Request $request)
     {
         $unit = new Unit();
@@ -163,11 +194,21 @@ class InventoryController extends Controller
 
     }
 
+
+    public function updateUnit(Request $request, $id)
+    {
+        $unit = Unit::find($id);
+        $unit->unit = $request->unit;
+        $unit->save();
+        return Redirect()->route('viewUnits');
+
+    }
+
     public function deleteUnit($id)
     {
 
         Unit::find($id)->delete();
-        $result="success";
+        $result = "success";
         return json_encode($result);
     }
 
@@ -179,12 +220,34 @@ class InventoryController extends Controller
 
     }
 
+
+    public function editTax($id)
+    {
+        $tax = Tax::where('id', $id)->first();
+        return view('inventory.editTax', compact('tax'));
+
+    }
+
     public function storeTax(Request $request)
     {
-        $value = $request->value . " " . $request->sym;
+
         $tax = new Tax();
         $tax->taxName = $request->taxName;
-        $tax->value = $value;
+        $tax->value = $request->value;
+        $tax->sym = $request->sym;
+        $tax->taxFor = $request->taxFor;
+        $tax->save();
+        return Redirect()->route('viewTaxes');
+    }
+
+
+    public function updateTax(Request $request, $id)
+    {
+
+        $tax = Tax::find($id);
+        $tax->taxName = $request->taxName;
+        $tax->value = $request->value;
+        $tax->sym = $request->sym;
         $tax->taxFor = $request->taxFor;
         $tax->save();
         return Redirect()->route('viewTaxes');
@@ -194,10 +257,9 @@ class InventoryController extends Controller
     {
 
         Tax::find($id)->delete();
-        $result="success";
+        $result = "success";
         return json_encode($result);
     }
-
 
 
     public function getAppliedTaxes()
@@ -205,6 +267,14 @@ class InventoryController extends Controller
         $appliedTaxes = Applytax::get();
         $taxes = Tax::get();
         return view('inventory.applyTax', compact('appliedTaxes', 'taxes'));
+
+    }
+
+    public function editAppliedTax($id)
+    {
+        $atax = Applytax::where('id', $id)->first();
+        $taxes = Tax::get();
+        return view('inventory.editAppliedTax', compact('atax', 'taxes'));
 
     }
 
@@ -223,11 +293,33 @@ class InventoryController extends Controller
         return Redirect()->route('getAppliedTaxes');
     }
 
+
+    public function updateAppliedtax(Request $request, $id)
+    {
+        if (!empty($request->taxes)) {
+            $taxes = implode(',', $request->taxes);
+        }
+        $chk = Applytax::where('vtype', $request->vtype)->first();
+        if (empty($chk)) {
+            $atax = new Applytax();
+        } else {
+            $atax = Applytax::find($chk->id);
+        }
+        $atax->vtype = $request->vtype;
+        if (!empty($request->taxes)) {
+            $atax->atax = $taxes;
+        }else{
+            $atax->atax ="";
+        }
+        $atax->save();
+        return Redirect()->route('getAppliedTaxes');
+    }
+
     public function deleteAppliedTax($id)
     {
 
         Applytax::find($id)->delete();
-        $result="success";
+        $result = "success";
         return json_encode($result);
     }
 
@@ -235,7 +327,7 @@ class InventoryController extends Controller
     {
 
         Applytax::find($id)->delete();
-        $result="success";
+        $result = "success";
         return json_encode($result);
     }
 
@@ -249,11 +341,11 @@ class InventoryController extends Controller
 
     public function storeStockInvoice(Request $request)
     {
-        $items=$request->items;
-        foreach($items as $item){
-            $stock=new Stock();
+        $items = $request->items;
+        foreach ($items as $item) {
+            $stock = new Stock();
             $item->product_id;
-    }
+        }
         return Redirect()->back();
     }
 

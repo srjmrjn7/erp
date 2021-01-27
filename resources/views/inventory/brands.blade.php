@@ -82,8 +82,8 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Brand</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Brand<button type="button" class="close" data-dismiss="modal">&times;</button></h4>
+
                 </div>
                 <div class="modal-body">
                     <div class="card-body">
@@ -105,8 +105,8 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control" name="status" id="status">
-                                    <option value="0">Active</option>
-                                    <option value="1">Inactive</option>
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
                                 </select>
                             </div>
 

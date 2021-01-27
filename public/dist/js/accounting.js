@@ -19,7 +19,7 @@ $(document).ready(function () {
                 success: function (result) {
                     swal({
                         title: 'Deleted!',
-                        text: 'Deleted Sucessfully',
+                        text: 'Deleted Successfully',
                         type: 'success'
                     }, function () {
                         window.location.reload();
@@ -42,11 +42,11 @@ $(document).ready(function () {
         var id = $(this).closest('.row').find('.stock_product').val();
 
         $.ajax({
-            url: '/erp/accounting/products/getStockProductsHtml/' + id,
+            url: path+'/accounting/products/getStockProductsHtml/' + id,
             type: 'GET',
             dataType: "json",
             success: function (data) {
-                $('.products_list tbody').append('<tr><td><input type="hidden" name="items[' + i + '][product_id]" value="' + data[0].id + '">' + data[0].product_name + '<input type="hidden" name="items[' + i + '][cost_price]" value="' + data[0].purchase_price + '"><input type="hidden" name="items[' + i + '][sale_price]" value="' + data[0].sale_price + '"></td><td>' + data[0].code + '</td><td><input type="hidden" name="items[' + i + '][unit_id]" value="' + data[0].unit_id + '">' + data[0].unit + '</td><td class="cost_price">' + data[0].purchase_price + '</td><td class="sale_price">' + data[0].sale_price + '</td><td><input type="text" class="form-control expected_qty" readonly="true" name="expected_qty" value="' + data[0].quantity + '"></td> <td><input type="number" class="form-control counted_qty" name="counted_qty" value=""></td><td class="difference"></td><td class="cost_sum"></td> <td class="sale_sum"></td><td><a href="#" class="btn btn-danger remove-stock-row"><i class="fa fa-minus"></i></a></td> </tr>');
+                $('.products_list tbody').append('<tr><td><input type="hidden" name="items[' + i + '][product_id]" value="' + data[0].id + '">' + data[0].product_name + '<input type="hidden" name="items[' + i + '][cost_price]" value="' + data[0].purchase_price + '"><input type="hidden" name="items[' + i + '][sale_price]" value="' + data[0].sale_price + '"></td><td>' + data[0].code + '</td><td><input type="hidden" name="items[' + i + '][unit_id]" value="' + data[0].unit_id + '">' + data[0].unit + '</td><td class="cost_price">' + data[0].purchase_price + '</td><td class="sale_price">' + data[0].sale_price + '</td><td><input type="text" class="form-control expected_qty" readonly="true" name="expected_qty" value="' + data[0].unit_stock + '"></td> <td><input type="number" class="form-control counted_qty" name="counted_qty" value=""></td><td class="difference"></td><td class="cost_sum"></td> <td class="sale_sum"></td><td><a href="#" class="btn btn-danger remove-stock-row"><i class="fa fa-minus"></i></a></td> </tr>');
                 i++;
                 StockCalculation();
 

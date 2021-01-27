@@ -38,12 +38,10 @@
                                         {{$unit->unit}}
                                     </td>
                                     <td>
-                                        <a href="" class="fa-btn">
+                                        <a href="{{URL::to('/products/editUnit/'.$unit->id)}}" class="fa-btn">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        &nbsp;
-                                        &nbsp;
-                                        <a href="" class="fa-btn delete-confirm">
+                                        <a href="{{URL::to('/products/unit/delete/'.$unit->id)}}" class="fa-btn delete-confirm">
                                             <i class="fa fa-trash-o"></i>
                                         </a>
                                     </td>
@@ -66,8 +64,8 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Units</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Units<button type="button" class="close" data-dismiss="modal">&times;</button></h4>
+
                 </div>
                 <div class="modal-body">
                     <div class="card-body">

@@ -17,6 +17,7 @@ class CreateTaxesTable extends Migration
             $table->id();
             $table->string('taxName');
             $table->string('value');
+            $table->string('sym');
             $table->string('taxFor');
             $table->timestamps();
         });

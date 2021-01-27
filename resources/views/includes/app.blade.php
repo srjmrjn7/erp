@@ -14,7 +14,8 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{asset('/public/bower_components/Ionicons/css/ionicons.min.css')}}">
     <!-- DataTables -->
-    <link rel="stylesheet" href="{{asset('public/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+    <link rel="stylesheet"
+          href="{{asset('public/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('/public/dist/css/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -354,13 +355,31 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{url('products/category')}}"><i class="fa fa-circle-o"></i> Product Categories</a></li>
+                        <li><a href="{{url('products/category')}}"><i class="fa fa-circle-o"></i> Product Categories</a>
+                        </li>
                         <li><a href="{{url('products/products')}}"><i class="fa fa-circle-o"></i> Products</a></li>
                         <li><a href="{{url('products/brands')}}"><i class="fa fa-circle-o"></i> Brands</a></li>
                         <li><a href="{{url('products/units')}}"><i class="fa fa-circle-o"></i> Units</a></li>
                         <li><a href="{{url('products/taxes')}}"><i class="fa fa-circle-o"></i> Taxes</a></li>
-                        <li><a href="{{url('products/getAppliedTaxes')}}"><i class="fa fa-circle-o"></i> Apply Taxes</a></li>
-                        <li><a href="{{url('products/stockInvoices')}}"><i class="fa fa-circle-o"></i> Stock Count</a></li>
+                        <li><a href="{{url('products/getAppliedTaxes')}}"><i class="fa fa-circle-o"></i> Apply Taxes</a>
+                        </li>
+                        <li><a href="{{url('products/stockInvoices')}}"><i class="fa fa-circle-o"></i> Stock Count</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Sales</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{url('products/purchaseQuotation')}}"><i class="fa fa-circle-o"></i> Purchase
+                                Quotation</a></li>
                     </ul>
                 </li>
 
@@ -378,8 +397,8 @@
         <section class="content">
 
             <!-- Main row -->
-@yield('content')
-            <!-- /.row (main row) -->
+        @yield('content')
+        <!-- /.row (main row) -->
 
         </section>
         <!-- /.content -->
@@ -441,19 +460,20 @@
 <!-- DataTables -->
 <script src="{{asset('/public/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('/public/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-<script>var path="{{url('/')}}"</script>
+
+<script>var path = "{{url('/')}}"</script>
 <script src="{{asset('/public/dist/js/accounting.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
 <script>
     $(function () {
         $('#example1').DataTable()
         $('#example2').DataTable({
-            'paging'      : true,
+            'paging': true,
             'lengthChange': false,
-            'searching'   : false,
-            'ordering'    : true,
-            'info'        : true,
-            'autoWidth'   : false
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': false
         })
     })
 </script>

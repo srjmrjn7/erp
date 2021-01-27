@@ -11,26 +11,33 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <form class="forms-sample" method="post" action="{{route('updateCategory',$category->id)}}">
+                        <form class="forms-sample" method="post" action="{{route('updateBrand',$brand->id)}}">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputUsername1">Brand Name</label>
-                                <input type="text" class="form-control" name="name"
+                                <input type="text" class="form-control" name="name" value="{{$brand->name}}"
                                        placeholder="Brand">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputUsername1">Manufacturer</label>
                                 <input type="text" class="form-control" name="manufacturer"
+                                       value="{{$brand->manufacturer}}"
                                        placeholder="Manufacturer">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Description</label>
-                                <input type="text" class="form-control" name="description" placeholder="Description">
+                                <input type="text" class="form-control" name="description"
+                                       value="{{$brand->description}}" placeholder="Description">
                             </div>
                             <div class="form-group">
                                 <select class="form-control" name="status" id="status">
-                                    <option value="0">Active</option>
-                                    <option value="1">Inactive</option>
+                                    @if($brand->status==1)
+                                        <option value="1">Active</option>
+                                        <option value="0">Inactive</option>
+                                    @else
+                                        <option value="0">Inactive</option>
+                                        <option value="1">Active</option>
+                                    @endif
                                 </select>
                             </div>
 
